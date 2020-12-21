@@ -16,13 +16,12 @@ tools:context=".MainActivity">
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:padding="30dp"/>
+        android:padding="40dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:textstyle="bold">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/left_mouth"
@@ -52,6 +51,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="%"
+            android:onClick="buPercent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -62,14 +62,14 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="AC"
+            android:onClick="ClearEvent"
             app:backgroundTint="#ababab"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:textstyle="bold">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/num_7"
@@ -79,6 +79,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="7"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -89,6 +90,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="8"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -99,24 +101,25 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="9"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
-            android:id="@+id/div"
+            android:id="@+id/buDiv"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="/"
+            android:onClick="buOpEvent"
             app:backgroundTint="#ababab"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:textstyle="bold">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/num_4"
@@ -126,6 +129,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="4"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -136,6 +140,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="5"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -146,24 +151,25 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="6"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
-            android:id="@+id/multi"
+            android:id="@+id/buMulti"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="*"
+            android:onClick="buOpEvent"
             app:backgroundTint="#ababab"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:textstyle="bold">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/num_1"
@@ -173,6 +179,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="1"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -183,6 +190,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="2"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -193,24 +201,25 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="3"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
-            android:id="@+id/minus"
+            android:id="@+id/buSub"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="-"
+            android:onClick="buOpEvent"
             app:backgroundTint="#ababab"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:textstyle="bold">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/num_0"
@@ -220,6 +229,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="0"
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -230,6 +240,7 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="."
+            android:onClick="numberEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
@@ -240,16 +251,18 @@ tools:context=".MainActivity">
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="="
+            android:onClick="buEqualEvent"
             app:backgroundTint="#ababab"/>
 
         <Button
-            android:id="@+id/plus"
+            android:id="@+id/buSum"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textSize="18dp"
             android:text="+"
+            android:onClick="buOpEvent"
             app:backgroundTint="#ababab"/>
     </LinearLayout>
 
