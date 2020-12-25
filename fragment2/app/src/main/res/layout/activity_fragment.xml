@@ -13,16 +13,10 @@
         android:text="안녕하세요"
         android:textSize="50dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/out"
-        android:text="나와라"/>
-    <LinearLayout
+    <fragment
+        android:id="@+id/fragment_one"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        android:background="#FA4848"
-        android:id="@+id/container"/>
+        android:layout_height="300dp"
+        android:name="com.example.fragment2.FragmentOne"/>
 
 </LinearLayout>
