@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android6">
 
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,18 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android6">
-        <activity android:name=".Context">
+        <activity android:name=".Library">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Context">
+        </activity>
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
-        </activity>
-        <activity android:name=".Theme"></activity>
+            android:theme="@style/SplashTheme"></activity>
+        <activity android:name=".Theme" />
         <activity android:name=".NullSafety" />
         <activity android:name=".MainActivity" />
     </application>
