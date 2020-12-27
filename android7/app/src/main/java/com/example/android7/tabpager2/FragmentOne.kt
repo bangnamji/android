@@ -1,14 +1,17 @@
-package com.example.android7
+package com.example.android7.tabpager2
 
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.example.android7.R
 
-class Fragment2: Fragment() {
+
+class FragmentOne : Fragment() {
+
     override fun onAttach(context: Context) {
         Log.d("Life-cycle","onAttach")
         super.onAttach(context)
@@ -26,7 +29,7 @@ class Fragment2: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_tab_pager,container,false)
+        return inflater.inflate(R.layout.fragmentone,container,false)
         // 밑의 fragment_one이라는 xml에서 그려진 걸 fragment에 그린다.
         Log.d("Life-cycle","onCreateView")
 

@@ -1,10 +1,12 @@
-package com.example.android7
+package com.example.android7.tabpager2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager.widget.PagerAdapter
+import com.example.android7.R
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_tab_pager.*
 
@@ -41,7 +43,7 @@ class TabPager2Activity : AppCompatActivity() {
 
 class ThreePageAdapter(
     val layoutInflater: LayoutInflater
-):PagerAdapter(){
+): PagerAdapter(){
     override fun getCount(): Int {
         return 3
         //세 장을 만들거니까
@@ -61,22 +63,22 @@ class ThreePageAdapter(
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         when(position){
             0->{
-                val view =layoutInflater.inflate(R.layout.fragment_one,container,false)
+                val view =layoutInflater.inflate(R.layout.fragment1,container,false)
                 container.addView(view)
                 return view
             }
             1->{
-                val view =layoutInflater.inflate(R.layout.fragment_two,container,false)
+                val view =layoutInflater.inflate(R.layout.fragment2,container,false)
                 container.addView(view)
                 return view
             }
             2->{
-                val view =layoutInflater.inflate(R.layout.fragment_three,container,false)
+                val view =layoutInflater.inflate(R.layout.fragment3,container,false)
                 container.addView(view)
                 return view
             }
             else->{
-                val view =layoutInflater.inflate(R.layout.fragment_one,container,false)
+                val view =layoutInflater.inflate(R.layout.fragment1,container,false)
                 container.addView(view)
                 return view
             }
