@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailTwo">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
+                android:padding="16dp"
+                android:src="@drawable/classone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:text="핸드타이드"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_detail" />
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="핸드타이드는 꽃다발을 만드는 기법 중 하나이다.\n꽃의 구성에 따라 꽃의 역할이 정해지는데 역할로는 폼, 매스, 필러가 있다.
+                \n\먼저, '폼'은 꽃들 중 존재감이 가장 큰 꽃으로 해당 꽃다발에서는 백합이 폼으로 사용되었다.
+                \n\매스는 폼보다는 사이즈가 작은 꽃이다. 우리가 흔히 보는 장미는 꽃다발에서 주로 매스의 역할을 한다.
+                \n\마지막으로 필러는 꽃과 꽃 사이의 공백을 채워주는 역할을 하는 꽃들이다. 해당 꽃다발에서는 플록스와 아스틸베를 필러로 사용하였다.
+                \n\선택적으로 라인의 역할을 하는 꽃들 존재할 수 있는데, 라인의 꽃들은 여리여리한 느낌을 가지며 꽃바구니에서는 가이드 라인을 잡기 위해 사용된다."
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_detail" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="꽃 종류"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView3"
+                android:layout_marginLeft="28dp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="소요시간"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/flower_kind_detail"
+                android:layout_marginLeft="28dp" />
+
+            <TextView
+                android:id="@+id/flower_kind_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:text="거베라, 유칼립투스, 클레마티스, 눈개승마, 아가판서스, 아스틸베, 빅토리아 로즈, 백합, 플록스 ..."
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@id/textView4"
+                app:layout_constraintTop_toBottomOf="@id/textView3"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/time_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="2h 30min ~ 3h"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@id/textView5"
+                app:layout_constraintTop_toBottomOf="@id/flower_kind_detail" />
+
+            <TextView
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/time_detail"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="100dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="28dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
