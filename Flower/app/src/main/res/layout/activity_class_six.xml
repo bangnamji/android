@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClassSix"
+    android:background="#ffeb8a">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:src="@drawable/classsix"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="5dp"
+                android:text="베이스어레인지먼트"
+                android:textSize="33dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_detail" />
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="28dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:textFontWeight="600"
+                android:textSize="20dp"
+                android:text="베이스어레인지먼트(화병꽂이)의 기법으로는 '그리드 기법', '핸드타이드 기법' 그리고 '레이싱 기법'이 있다.\n그 중 '레이싱 기법'이 가장 많이 쓰이는 기법이다. 레이싱 기법은 줄기와 줄기를 교차시키는 방법인데, 이때 바인딩 포인트를 지정하여 줄기가 모두 바인딩 포인트를 지나게 하는 것이 중요하다.\n\n유의사항\n1. 바인딩포인트를 지나 교차시켜야 한다.\n2. 화병 높이만큼 잎을 제거해주어야 한다.\n3. 가이드라인은 그린 소재로 잡되 잎은 최대한 제거해주어야 한다.\n"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_detail" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:text="사용된 꽃"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView3"
+                android:layout_marginLeft="28dp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:text="소요시간"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/flower_kind_detail"
+                android:layout_marginLeft="28dp" />
+
+            <TextView
+                android:id="@+id/flower_kind_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:textFontWeight="600"
+                android:textSize="20dp"
+                android:text="마담굴리아 장미, 마루시아, 과꽃, 빅토리아 장미, 킹다알리아, 카네이션, 소국, 레몬트리, 유칼립투스, 로즈마리, 거베라, 후록스, 엽귀, 페니쿰"
+                app:layout_constraintStart_toEndOf="@id/textView4"
+                app:layout_constraintTop_toBottomOf="@id/textView3"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/time_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:textFontWeight="600"
+                android:text="2h 30min ~ 3h"
+                android:textSize="20dp"
+                app:layout_constraintStart_toEndOf="@id/textView4"
+                app:layout_constraintTop_toBottomOf="@id/flower_kind_detail" />
+
+            <TextView
+                android:background="#ffeb8a"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/time_detail"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="100dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="28dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

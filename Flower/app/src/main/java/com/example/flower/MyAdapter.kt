@@ -5,6 +5,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.row.view.*
 
@@ -18,7 +20,6 @@ class MyAdapter (val arrayList: ArrayList<Model>, val context: Context) :
             itemView.titleTv.text = model.title
             itemView.descriptionTv.text = model.des
             itemView.imageIv.setImageResource(model.image)
-            itemView.detailTv.text = model.detail
 
         }
     }
@@ -46,28 +47,35 @@ class MyAdapter (val arrayList: ArrayList<Model>, val context: Context) :
 //            var gImageView : Int = model.image
 //            var gDetail : String = model.detail
 
+
             if (position==0){
+                Toast.makeText(context, "You clicked class 1", Toast.LENGTH_LONG).show()
                 var intent = Intent(context, DetailOne::class.java)
                 context.startActivity(intent)
             }
             if (position==1){
+                //Toast.makeText(context, "You clicked class 2", Toast.LENGTH_LONG).show()
                 var intent = Intent(context, DetailTwo::class.java)
                 context.startActivity(intent)
             }
             if (position==2){
-                var intent = Intent(context, DetailThree::class.java)
+                //Toast.makeText(context, "You clicked class 3", Toast.LENGTH_LONG).show()
+                var intent = Intent(context, ClassThree::class.java)
                 context.startActivity(intent)
             }
             if (position==3){
-                var intent = Intent(context, DetailFour::class.java)
+                //Toast.makeText(context, "You clicked class 4", Toast.LENGTH_LONG).show()
+                var intent = Intent(context, ClassFour::class.java)
                 context.startActivity(intent)
             }
             if (position==4){
-                var intent = Intent(context, DetailFive::class.java)
+                //Toast.makeText(context, "You clicked class 5", Toast.LENGTH_LONG).show()
+                var intent = Intent(context, ClassFive::class.java)
                 context.startActivity(intent)
             }
             if (position==5){
-                var intent = Intent(context, DetailSix::class.java)
+                //Toast.makeText(context, "You clicked class 6", Toast.LENGTH_LONG).show()
+                var intent = Intent(context, ClassSix::class.java)
                 context.startActivity(intent)
             }
 
@@ -76,7 +84,7 @@ class MyAdapter (val arrayList: ArrayList<Model>, val context: Context) :
 //            intent.putExtra("iDetail", gDetail)
 
 //            context.startActivity(intent)
-            // Toast 기능 관련
+//            // Toast 기능 관련
 //            if (position == 0){
 //                Toast.makeText(context, "You clicked class 1", Toast.LENGTH_LONG).show()
 //            }

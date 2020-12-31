@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClassFive"
+    android:background="#ffeb8a">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:src="@drawable/classfive"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name_detail"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="5dp"
+                android:text="부케"
+                android:textSize="33dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_detail" />
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="28dp"
+                android:text="부케 제작시에는 신부님의 체형, 피부통, 식장의 전체적인 색감과 계절 등을 고려해야 한다.\n예를 들어, 머메이드 핏의 드레스는 카라가 메인으로 들어간 날렵한 형태의 부케가 적합하다. 반대로 벨라인의 드레스에는 풍성한 형태의 부케가 적합하다.\n또한 부케도 트랜가 있는데, 최근에는 줄기가 자연스럽게 보이는 네츄럴한 형태의 부케를 선호하는 추세이다.\n\n유의사항\n- 위에서 바라보는 시선을 중시해야 한다.\n- 꽃의 얼굴을 제외한 모든 잎의 제거해야 한다.\n- 연한 컬러를 선정하는 것이 좋다.\n- 부토니에 같은 경우에는 부케에서 떨어진 듯한 느낌으로 제작되어야 한다.\n"
+                android:textSize="20dp"
+                android:textFontWeight="600"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_detail" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#545454"
+                android:fontFamily="@font/firefighter"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="사용된 꽃"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView3"
+                android:layout_marginLeft="28dp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="소요시간"
+                android:textColor="#545454"
+                android:fontFamily="@font/firefighter"
+                android:textSize="20dp"
+                android:textStyle="bold"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/flower_kind_detail"
+                android:layout_marginLeft="28dp" />
+
+            <TextView
+                android:id="@+id/flower_kind_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:text="히아신스, 별튤립, 아스트란시아, 시폰, 향든골, 네프로, 부바르디아"
+                android:textSize="20dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:textFontWeight="600"
+                app:layout_constraintStart_toEndOf="@id/textView4"
+                app:layout_constraintTop_toBottomOf="@id/textView3"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/time_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/firefighter"
+                android:text="1h 30min ~ 2h"
+                android:textColor="#545454"
+                android:textFontWeight="600"
+                android:textSize="20dp"
+                app:layout_constraintStart_toEndOf="@id/textView4"
+                app:layout_constraintTop_toBottomOf="@id/flower_kind_detail" />
+
+            <TextView
+                android:background="#ffeb8a"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/time_detail"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="100dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="28dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

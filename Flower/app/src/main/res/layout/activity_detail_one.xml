@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailOne">
+    tools:context=".DetailOne"
+    android:background="#ffeb8a">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,7 +19,7 @@
                 android:id="@+id/img_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:padding="16dp"
                 android:src="@drawable/classone"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -32,9 +33,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginLeft="28dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
                 android:text="핸드타이드"
-                android:textSize="30dp"
+                android:textSize="33dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/img_detail" />
@@ -48,13 +51,12 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:text="핸드타이드는 꽃다발을 만드는 기법 중 하나이다.\n꽃의 구성에 따라 꽃의 역할이 정해지는데 역할로는 폼, 매스, 필러가 있다.
-                \n\먼저, '폼'은 꽃들 중 존재감이 가장 큰 꽃으로 해당 꽃다발에서는 백합이 폼으로 사용되었다.
-                \n\매스는 폼보다는 사이즈가 작은 꽃이다. 우리가 흔히 보는 장미는 꽃다발에서 주로 매스의 역할을 한다.
-                \n\마지막으로 필러는 꽃과 꽃 사이의 공백을 채워주는 역할을 하는 꽃들이다. 해당 꽃다발에서는 플록스와 아스틸베를 필러로 사용하였다.
-                \n\선택적으로 라인의 역할을 하는 꽃들 존재할 수 있는데, 라인의 꽃들은 여리여리한 느낌을 가지며 꽃바구니에서는 가이드 라인을 잡기 위해 사용된다."
-                android:textSize="15dp"
+                android:layout_marginRight="28dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:textFontWeight="600"
+                android:text="핸드타이드(hand-tied)의 기법으로는 '스파이럴 기법'과 '플랫백 기법';이 존재한다.\n'스파이럴 기법'의 핵심은 줄기를 한방향으로만 돌려주는 것이다. 이때 바인딩포인트 아래의 잎들은 모두 제거해주어야 한다.\n\nTips.\n시작은 얼굴이 크고 대가 굵은 꽃들로 시작하여야 하며, 필러 소재의 꽃들을 이용하여 틈을 채워주는 형식으로 꽃다발을 만들면 안정적으로 만들 수 있다."
+                android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name_detail" />
@@ -67,8 +69,10 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:text="꽃 종류"
-                android:textSize="15dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:text="사용된 꽃"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView3"
@@ -82,8 +86,10 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
                 android:text="소요시간"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/flower_kind_detail"
@@ -97,8 +103,11 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:text="거베라, 유칼립투스, 클레마티스, 눈개승마, 아가판서스, 아스틸베, 빅토리아 로즈, 백합, 플록스 ..."
-                android:textSize="15dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:textFontWeight="600"
+                android:text="거베라, 유칼립투스, 클레마티스, 눈개승마, 아가판서스, 아스틸베, 빅토리아 로즈, 백합, 플록스, 다알리아"
+                android:textSize="20dp"
                 app:layout_constraintStart_toEndOf="@id/textView4"
                 app:layout_constraintTop_toBottomOf="@id/textView3"
                 android:layout_marginRight="16dp" />
@@ -107,18 +116,21 @@
                 android:id="@+id/time_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="21dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/firefighter"
+                android:textColor="#545454"
+                android:textFontWeight="600"
                 android:text="2h 30min ~ 3h"
-                android:textSize="15dp"
-                app:layout_constraintStart_toEndOf="@id/textView5"
+                android:textSize="20dp"
+                app:layout_constraintStart_toEndOf="@id/textView4"
                 app:layout_constraintTop_toBottomOf="@id/flower_kind_detail" />
 
             <TextView
-                android:background="@color/white"
+                android:background="#ffeb8a"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="20dp"
                 app:layout_constraintStart_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/time_detail"/>
 
