@@ -54,27 +54,27 @@ class MyAdapter (val arrayList: ArrayList<Model>, val context: Context) :
                 context.startActivity(intent)
             }
             if (position==1){
-                //Toast.makeText(context, "You clicked class 2", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "You clicked class 2", Toast.LENGTH_LONG).show()
                 var intent = Intent(context, DetailTwo::class.java)
                 context.startActivity(intent)
             }
             if (position==2){
-                //Toast.makeText(context, "You clicked class 3", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "You clicked class 3", Toast.LENGTH_LONG).show()
                 var intent = Intent(context, ClassThree::class.java)
                 context.startActivity(intent)
             }
             if (position==3){
-                //Toast.makeText(context, "You clicked class 4", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "You clicked class 4", Toast.LENGTH_LONG).show()
                 var intent = Intent(context, ClassFour::class.java)
                 context.startActivity(intent)
             }
             if (position==4){
-                //Toast.makeText(context, "You clicked class 5", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "You clicked class 5", Toast.LENGTH_LONG).show()
                 var intent = Intent(context, ClassFive::class.java)
                 context.startActivity(intent)
             }
             if (position==5){
-                //Toast.makeText(context, "You clicked class 6", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "You clicked class 6", Toast.LENGTH_LONG).show()
                 var intent = Intent(context, ClassSix::class.java)
                 context.startActivity(intent)
             }
