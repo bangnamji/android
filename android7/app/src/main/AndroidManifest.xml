@@ -9,16 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android7">
-        <activity android:name=".Realm.RealmActivity_YouTube">
+        <activity android:name=".Practice3">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Realm.RealmActivity">
+        <activity android:name=".Practice2">
         </activity>
-        <activity android:name=".SharedPreference.SharedPreference"></activity>
+        <activity android:name=".Practice1" />
+        <activity android:name=".ClassPractice" />
+        <activity android:name=".Realm.RealmActivity_YouTube" />
+        <activity android:name=".Realm.RealmActivity" />
+        <activity android:name=".SharedPreference.SharedPreference" />
         <activity android:name=".tabpager2.TabPager2Activity" />
         <activity android:name=".tabpager1.TabPagerActivity" />
         <activity android:name=".MainActivity" />
