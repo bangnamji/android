@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".todolist.ToDoMainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/eteditText"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:text="할 일을 입력하시오."
+            android:inputType="textPersonName"
+            android:textColor="#707070"/>
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="#6070CA"
+            app:backgroundTint="#5667C6"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:text="추가"
+            android:textSize="16dp"
+            android:textAlignment="gravity"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/todolist" />
+
+</LinearLayout>

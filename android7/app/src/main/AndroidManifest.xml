@@ -9,15 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android7">
-        <activity android:name=".Practice3">
+        <activity android:name=".ToDoList.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Practice2">
+        <activity android:name=".ToDoList.SplashActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".Practice3" />
+        <activity android:name=".Practice2" />
         <activity android:name=".Practice1" />
         <activity android:name=".ClassPractice" />
         <activity android:name=".Realm.RealmActivity_YouTube" />
