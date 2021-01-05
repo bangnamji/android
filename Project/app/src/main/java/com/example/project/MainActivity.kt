@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.recyclerView.apply{
             layoutManager = LinearLayoutManager(this@MainActivity)
+
             adapter = TodoAdapter(data,
                     onClickDeleteIcon = {
                         deleteTodo(it)
@@ -34,26 +35,26 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-
         binding.addButton.setOnClickListener {
             addTodo()
         }
 
-
-
     }
 
+    //할 일 완료 기능 -> 할 일을 선택하면 !todo.isDone으로 변경된다.
     private fun toggleTodo(todo: TodoList) {
         todo.isDone = !todo.isDone
         binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
+    //할 일 추가 기능 -> 변경된 데이터를 어댑터에 전달한다.
     private fun addTodo() {
         val todo = TodoList(binding.editText.text.toString())
         data.add(todo)
         binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
+    //삭제 기능
     private fun deleteTodo(todo: TodoList) {
         data.remove(todo)
         binding.recyclerView.adapter?.notifyDataSetChanged()
@@ -67,6 +68,7 @@ data class TodoList(
         var isDone: Boolean=false
 )
 
+//Unit은 리턴값이 없는 함수수
 class TodoAdapter(
         private val myDataset: ArrayList<TodoList>,
         val onClickDeleteIcon: (todo: TodoList) -> Unit,
@@ -86,6 +88,7 @@ class TodoAdapter(
         val todo = myDataset[position]
         holder.binding.todoText.text = todo.text
 
+        //만약 할 일을 완료했다면
         if (todo.isDone) {
             holder.binding.todoText.apply {
                 paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
