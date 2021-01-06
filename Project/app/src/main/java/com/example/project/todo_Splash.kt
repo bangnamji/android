@@ -37,7 +37,7 @@ class todo_Splash : AppCompatActivity() {
             binding.icLogo.startAnimation(AnimationUtils.loadAnimation(this,R.anim.splash_out))
             Handler().postDelayed({
                 binding.icLogo.visibility = View.GONE      //로고를 숨기고 액티비티를 시작할게
-                startActivity(Intent(this,MainActivity::class.java))
+                startActivity(Intent(this,CheckBoxActivity::class.java))
                 finish()      //뒤로가기를 해도 splash가 다시 실행되지 않도록
             },500)
         },1500)     //Handler를 사용하여 1.5초 후에 종료 애니메이션 시작
