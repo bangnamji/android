@@ -1,12 +1,21 @@
 package com.example.project
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.os.Bundle
+import android.preference.PreferenceManager
+import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project.databinding.ActivityCheckBoxBinding
@@ -18,12 +27,24 @@ import kotlin.coroutines.coroutineContext
 class CheckBoxActivity : AppCompatActivity() {
     private val data = ArrayList<TodoCheckList>()
 
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
     private lateinit var binding: ActivityCheckBoxBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckBoxBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
+        //데이터 저장
+//        val pref = PreferenceManager.getDefaultSharedPreferences(this)
+//        pref.apply {
+//            val mainlist = getString("MAIN_LIST", "")
+//            binding.editText.setText(mainlist)
+//        }
+
 
         binding.recyclerView.apply{
             layoutManager = LinearLayoutManager(this@CheckBoxActivity)
@@ -41,9 +62,14 @@ class CheckBoxActivity : AppCompatActivity() {
 
         binding.addButton.setOnClickListener {
             addTodo()
+
         }
 
+
     }
+
+
+
 
     //할 일 완료 기능 -> 할 일을 선택하면 !todo.isDone으로 변경된다.
     private fun toggleTodo(todo: TodoCheckList) {
@@ -66,11 +92,6 @@ class CheckBoxActivity : AppCompatActivity() {
 
     }
 
-    //수정 기능 (추가)
-    private fun updateTodo(todo: TodoCheckList) {
-
-
-    }
 }
 
 
@@ -119,6 +140,16 @@ class TodoCheckAdapter(
         holder.binding.checkbox.setOnClickListener {
             onClickItem.invoke(todo)
         }
+
+
+
+        holder.binding.editImageView.setOnClickListener {
+            val intent = Intent(holder.itemView?.context, Modify::class.java)
+//            intent.putExtra(holder.itemView?.context,todo.text)
+//            intent.putExtra("hi", myDataset[position].text)
+            holder.itemView?.context.startActivity(intent)      //상세페이지로 intent...
+        }
+
 
     }
 

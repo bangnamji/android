@@ -17,4 +17,9 @@
     <style name="EditTheme_blue" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="colorAccent">@color/cursorColor</item>
     </style>
+
+    <style name="EditTheme_blue2" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorAccent">@color/cursorColor</item>
+        <item name="android:background">#edeff2</item>
+    </style>
 </resources>

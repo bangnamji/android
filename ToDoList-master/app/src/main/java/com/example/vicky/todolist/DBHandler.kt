@@ -121,7 +121,7 @@ class DBHandler(val context: Context) : SQLiteOpenHelper(context, DB_NAME, null,
             do {
                 val item = ToDoItem()
                 item.id = queryResult.getLong(queryResult.getColumnIndex(COL_ID))
-                item.toDoId = queryResult.getLong(queryResult.getColumnIndex(COL_TODO_ID))
+                item.c = queryResult.getLong(queryResult.getColumnIndex(COL_TODO_ID))
                 item.itemName = queryResult.getString(queryResult.getColumnIndex(COL_ITEM_NAME))
                 item.isCompleted = queryResult.getInt(queryResult.getColumnIndex(COL_IS_COLPLETED)) == 1
                 result.add(item)

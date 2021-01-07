@@ -1,12 +1,11 @@
 package com.example.vicky.todolist
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
@@ -14,8 +13,6 @@ import android.view.*
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
-import com.example.vicky.todolist.DTO.ToDo
 import com.example.vicky.todolist.DTO.ToDoItem
 import kotlinx.android.synthetic.main.activity_item.*
 import java.util.*
@@ -180,3 +177,5 @@ class ItemActivity : AppCompatActivity() {
     }
 
 }
+
+

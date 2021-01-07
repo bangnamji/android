@@ -1,11 +1,16 @@
 package com.example.project
 
+import android.content.SharedPreferences
 import android.graphics.Paint
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
+import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project.databinding.ActivityMainBinding
@@ -14,12 +19,16 @@ import com.example.project.databinding.TodolistBinding
 class MainActivity : AppCompatActivity() {
     private val data = ArrayList<TodoList>()
 
+
+
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
 
         binding.recyclerView.apply{
             layoutManager = LinearLayoutManager(this@MainActivity)
@@ -40,6 +49,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 
     //할 일 완료 기능 -> 할 일을 선택하면 !todo.isDone으로 변경된다.
     private fun toggleTodo(todo: TodoList) {

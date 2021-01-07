@@ -1,6 +1,7 @@
 package com.example.project
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -43,3 +44,5 @@ class todo_Splash : AppCompatActivity() {
         },1500)     //Handler를 사용하여 1.5초 후에 종료 애니메이션 시작
     }
 }
+
+

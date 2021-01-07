@@ -57,6 +57,8 @@ class SharedPreference : AppCompatActivity() {
             editor.commit()
 
         }
+
+
         button15.setOnClickListener {
             val sharedPreference = getSharedPreferences("sp1", MODE_PRIVATE)
             val editor = sharedPreference.edit()
@@ -65,3 +67,7 @@ class SharedPreference : AppCompatActivity() {
         }
     }
 }
+
+
+
+
