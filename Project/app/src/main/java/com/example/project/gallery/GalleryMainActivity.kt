@@ -1,35 +1,38 @@
 package com.example.project.gallery
-
 import android.content.Context
 import android.content.Intent
-import android.graphics.*
+import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.media.ExifInterface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.provider.MediaStore
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.GridView
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.project.Modify
-import com.example.project.R
-import com.example.project.TodoCheckAdapter
-import com.example.project.TodoCheckList
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.project.databinding.ActivityGalleryMainBinding
-import com.example.project.databinding.TodolistCheckboxBinding
 import kotlinx.android.synthetic.main.gallary_grid_image.*
-import kotlinx.android.synthetic.main.gallary_grid_image.view.*
 import java.io.ByteArrayOutputStream
-import java.io.IOException
+import java.util.jar.Manifest
+import kotlin.collections.ArrayList
 
+@Suppress("DEPRECATION")
 class GalleryMainActivity : AppCompatActivity() {
 
+
+    private val CAMERA_PERMISSION = arrayOf(android.Manifest.permission.CAMERA)
+    private val STORAGE_PERMISSION = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
     //어떤 액티비인지 식별하는 값
     val REQUESTCODE_CAMERA = 1
     val REQUESTCODE_GALLERY = 2
+    val PERMISSION_CAMERA = 3
+    val PERMISSION_STORAGE = 4
     var imageArray = ArrayList<ByteArray>()
     private var adapter: GridViewAdapter? = null
 
@@ -43,11 +46,13 @@ class GalleryMainActivity : AppCompatActivity() {
 
         //각 버튼이 할 기능 설정
         binding.Camera.setOnClickListener {
-            takePhotoFromCamera()
+//            takePhotoFromCamera()
+            openCamera()
+
         }
 
         binding.Gallery.setOnClickListener {
-            selectImageFromGallary()
+            selectImageFromGallery()
         }
 
         binding.clearAll.setOnClickListener {
@@ -55,12 +60,31 @@ class GalleryMainActivity : AppCompatActivity() {
             //이미지를 모두 삭제
             imageArray.clear()
             //어댑터를 null로 설정
-            binding.GridView.adapter=null
+            binding.gvGallery.adapter=null
         }
     }
 
 
-    private fun selectImageFromGallary() {
+
+    private fun checkPermission(permissions: Array<out String>, flag : Int) : Boolean {
+        for(permission in permissions) {
+            if(ContextCompat.checkSelfPermission(this,permission) !=
+                    PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, permissions, flag)
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun openCamera() {
+        if(checkPermission(CAMERA_PERMISSION, PERMISSION_CAMERA)) {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent,REQUESTCODE_CAMERA)
+        }
+    }
+
+    private fun selectImageFromGallery() {
         var intent = Intent()
         intent.type = "image/*"     //안드로이드 파일 탐색기 type별 intent 호출 (갤러리 호출은 image/*),
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)      //여러 파일을 선택할 수 있도록
@@ -72,12 +96,14 @@ class GalleryMainActivity : AppCompatActivity() {
     }
 
     private fun takePhotoFromCamera() {
-        //카메라 앱으로 사진 촬영 요청
+
+//        카메라 앱으로 사진 촬영 요청
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
                 startActivityForResult(takePictureIntent, REQUESTCODE_CAMERA)
             }
         }
+
 
     }
 
@@ -89,15 +115,20 @@ class GalleryMainActivity : AppCompatActivity() {
         if (requestCode == REQUESTCODE_CAMERA)
         {
             //To check on Logcat terminal if inside camera section
-            Log.d("~~~~TAG","Inside Camera")
+//            Log.d("~~~~TAG","Inside Camera")
+//
 
 
-            val imageBitmap = intent?.extras!!.get("data") as Bitmap
+            val bitmap = intent?.extras!!.get("data") as Bitmap
+            imageView.setImageBitmap(bitmap)
+
+//            val imageBitmap = intent?.extras!!.get("data") as Bitmap
             val bytes = ByteArrayOutputStream()
-            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
             imageArray.add(bytes.toByteArray())
             bytes.close()
         }
+
         //갤러리에서 사진 가져오자 ~
         else if (requestCode == REQUESTCODE_GALLERY)
         {
@@ -109,6 +140,22 @@ class GalleryMainActivity : AppCompatActivity() {
                 val imageBitmap = intent?.data?.let { MediaStore.Images.Media.getBitmap(this.contentResolver, it)
                 }
 
+//                lateinit var exif: ExifInterface
+//
+//                try {
+//                    exif = ExifInterface()
+//                    var exifOrientation = 0
+//                    var exifDegree = 0
+//
+//                    if( exif!= null){
+//                        exifOrientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+//                        exifDegree = exifOrientationToDegree(exifOrientation)
+//                    }
+//                    imageView.setImageBitmap(rotate(bitmap, exifDegree))
+//                }catch (e : IOException){
+//                    e.printStackTrace()
+//                }
+
                 val bytes = ByteArrayOutputStream()
 
                 imageBitmap?.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
@@ -119,12 +166,34 @@ class GalleryMainActivity : AppCompatActivity() {
         }
 
         adapter = GridViewAdapter(this, imageArray)
-        binding.GridView.adapter = adapter
+        binding.gvGallery.adapter = adapter
 
     }
 
 
+    //마음대로 돌아가는 사진 제대로 회전시키자 ~
+    private fun exifOrientationToDegree(exifOrientation: Int): Int {
+        when(exifOrientation) {
+            ExifInterface.ORIENTATION_ROTATE_90 -> return 90
+            ExifInterface.ORIENTATION_ROTATE_180 -> return 180
+            ExifInterface.ORIENTATION_ROTATE_270 -> return 270
+
+            else -> return 0    //사진이 찍힌 그 상태로 유지
+        }
+    }
+
+    //실제 회전이 돌아가는 코드
+    //degree는 exifOrientationToDegree() 함수에서 리턴된 값
+    //근데 해결못했어 ~~ ㅋ ㅋ ㅋ ㅋ ㅋ
+    private fun rotate(bitmap: Bitmap, degree: Int) : Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(degree.toFloat())
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    }
+
 
 }
+
+
 
 
