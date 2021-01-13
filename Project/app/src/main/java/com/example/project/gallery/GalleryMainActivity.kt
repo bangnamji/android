@@ -2,9 +2,8 @@ package com.example.project.gallery
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Paint
-import android.graphics.Typeface
+import android.graphics.*
+import android.media.ExifInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -21,8 +20,10 @@ import com.example.project.TodoCheckAdapter
 import com.example.project.TodoCheckList
 import com.example.project.databinding.ActivityGalleryMainBinding
 import com.example.project.databinding.TodolistCheckboxBinding
+import kotlinx.android.synthetic.main.gallary_grid_image.*
 import kotlinx.android.synthetic.main.gallary_grid_image.view.*
 import java.io.ByteArrayOutputStream
+import java.io.IOException
 
 class GalleryMainActivity : AppCompatActivity() {
 
@@ -83,6 +84,7 @@ class GalleryMainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?)
     {
         super.onActivityResult(requestCode, resultCode, intent)
+
         //for intent with request code for camera
         if (requestCode == REQUESTCODE_CAMERA)
         {
@@ -96,7 +98,7 @@ class GalleryMainActivity : AppCompatActivity() {
             imageArray.add(bytes.toByteArray())
             bytes.close()
         }
-        //for intent with request code for gallery
+        //갤러리에서 사진 가져오자 ~
         else if (requestCode == REQUESTCODE_GALLERY)
         {
             //To check on Logcat terminal if inside gallery section
@@ -104,7 +106,8 @@ class GalleryMainActivity : AppCompatActivity() {
 
             if(intent?.data!=null)
             {
-                val imageBitmap = intent?.data?.let { MediaStore.Images.Media.getBitmap(this.contentResolver, it) }
+                val imageBitmap = intent?.data?.let { MediaStore.Images.Media.getBitmap(this.contentResolver, it)
+                }
 
                 val bytes = ByteArrayOutputStream()
 
@@ -112,12 +115,15 @@ class GalleryMainActivity : AppCompatActivity() {
                 imageArray.add(bytes.toByteArray())
                 bytes.close()
             }
+
         }
 
         adapter = GridViewAdapter(this, imageArray)
         binding.GridView.adapter = adapter
 
     }
+
+
 
 }
 
