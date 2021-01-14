@@ -3,9 +3,6 @@ package com.example.project.datepicker
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.project.Modify
-import com.example.project.R
-import com.example.project.databinding.ActivityDatepickerBinding
 import com.example.project.databinding.ActivityTestBinding
 
 class TestActivity : AppCompatActivity() {

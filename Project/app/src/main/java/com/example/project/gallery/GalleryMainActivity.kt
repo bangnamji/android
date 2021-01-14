@@ -31,6 +31,7 @@ class GalleryMainActivity : AppCompatActivity() {
     //어떤 액티비인지 식별하는 값
     val REQUESTCODE_CAMERA = 1
     val REQUESTCODE_GALLERY = 2
+
     val PERMISSION_CAMERA = 3
     val PERMISSION_STORAGE = 4
     var imageArray = ArrayList<ByteArray>()
@@ -117,7 +118,6 @@ class GalleryMainActivity : AppCompatActivity() {
             //To check on Logcat terminal if inside camera section
 //            Log.d("~~~~TAG","Inside Camera")
 //
-
 
             val bitmap = intent?.extras!!.get("data") as Bitmap
             imageView.setImageBitmap(bitmap)

@@ -6,12 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.preference.PreferenceManager
-import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.Toast
-import com.example.project.CheckBoxActivity
-import com.example.project.R
 import com.example.project.databinding.ActivityDatePicker1Binding
 import com.example.project.databinding.ActivityDatepickerBinding
 import java.text.SimpleDateFormat

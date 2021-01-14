@@ -21,7 +21,9 @@ class GridViewAdapter():BaseAdapter()
         this.context = context
         this.images = foodsList
     }
-    @SuppressLint("ServiceCast", "ViewHolder")
+
+    //화면에 어떻게 보일지지
+   @SuppressLint("ServiceCast", "ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View
     {
         val img= BitmapFactory.decodeByteArray(images[position], 0, images[position].size)

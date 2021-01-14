@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="cursorColor">#b1c7e0</color>
+
+    //InfiniteRecylcerCalender에 사용
+    <color name="colorAccent">#536DFE</color>
+    //여기까지
 </resources>
