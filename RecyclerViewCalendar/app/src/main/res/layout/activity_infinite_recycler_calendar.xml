@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="16dp"
-    tools:context=".MainActivity">
+    tools:context=".InfiniteRecyclerCalendarActivity">
 
     <TextView
     android:layout_width="match_parent"
@@ -30,9 +30,9 @@
         android:textStyle="italic"
         android:typeface="monospace" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.example.recyclercalender.InfiniteRecyclerCalendarView
         android:id="@+id/calendarRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>
