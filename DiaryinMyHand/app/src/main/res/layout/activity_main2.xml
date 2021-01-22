@@ -77,15 +77,44 @@
     캘린더에서 특정 날짜를 눌렀을 때 아래에 내용이 뜨게 어떻게...????
     일단 scrollview 안쓰고 내비두기-->
 
+    <ImageButton
+        android:id="@+id/add_button"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@android:color/transparent"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:src="@drawable/ic_baseline_add_24"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+    <!--    android:background="@android:color/transparent"하면 배경 투명-->
+
+    <EditText
+        android:id="@+id/diarymaintext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#b1c7e0"
+        android:ems="12"
+        android:hint="제목을 입력하세요"
+        android:inputType="textLongMessage"
+        app:layout_constraintEnd_toStartOf="@+id/add_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
     //addView 쓰기
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/calendarView"-->
-<!--        tools:layout_editor_absoluteX="5dp"/>-->
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diarymaintext" />
+
+<!--    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,6 +130,6 @@
             android:layout_marginRight="5dp"
             android:orientation="vertical" />
 
-    </ScrollView>
+    </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
