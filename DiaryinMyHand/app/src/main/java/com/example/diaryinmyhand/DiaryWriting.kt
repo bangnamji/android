@@ -22,6 +22,14 @@ class DiaryWriting : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR).toString()
+        val month = (cal.get(Calendar.MONTH)+1).toString()
+        val day = cal.get(Calendar.DATE).toString()
+
+        val currentdate = formatDate.format(cal.time)
+        binding.textView.text = currentdate
+
         binding.textView.setOnClickListener {
             val getDate = Calendar.getInstance()
             val datepicker = DatePickerDialog(
