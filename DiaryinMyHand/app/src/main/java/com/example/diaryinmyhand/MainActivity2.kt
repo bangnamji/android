@@ -72,8 +72,8 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun moreDiary(diary: DiaryList) {
-        data.remove(diary)
-        binding.list.adapter?.notifyDataSetChanged()
+        //data.remove(diary)
+        //binding.list.adapter?.notifyDataSetChanged()
     }
 }
 
@@ -94,8 +94,13 @@ class DiaryAdapter(private val myDiary: ArrayList<DiaryList>, val onClickMoreIco
 
         holder.binding.itemTitle.text = diary.text
 
-        holder.binding.more.setOnClickListener {
+        /*holder.binding.more.setOnClickListener {
             onClickMoreIcon.invoke(diary)
+        }*/
+
+        holder.binding.itemTitle.setOnClickListener {
+            val intent = Intent(holder.itemView?.context, DiaryWriting::class.java)
+            holder.itemView?.context.startActivity(intent)
         }
 
     }
