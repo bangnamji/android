@@ -33,6 +33,7 @@ class DiaryWriting : AppCompatActivity() {
 
         val addRunnable = Runnable {
             val newCat = Data()
+
             newCat.dataTitle = binding.titleWrite.text.toString()
             newCat.dataImage = binding.imageContent.imageAlpha
             newCat.dataContent = binding.contentWrite.text.toString()

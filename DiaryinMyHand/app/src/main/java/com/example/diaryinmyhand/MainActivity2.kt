@@ -104,7 +104,14 @@ data class DiaryList(val text:String)
 
 class DiaryAdapter(private val myDiary: ArrayList<DiaryList>, val onClickMoreIcon: (diary:DiaryList)->Unit):RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {
 
-    inner class DiaryViewHolder(val binding: DiaryitemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class DiaryViewHolder(val binding: DiaryitemBinding) : RecyclerView.ViewHolder(binding.root) {
+        //val nameTv = itemView?.findViewById<TextView>(R.id.item_title)
+
+/*        fun bind(data:Data){
+            nameTv?.text=data.dataTitle
+        }*/
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiaryViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -114,6 +121,7 @@ class DiaryAdapter(private val myDiary: ArrayList<DiaryList>, val onClickMoreIco
 
     override fun onBindViewHolder(holder: DiaryViewHolder, position: Int) {
         val diary = myDiary[position]
+
 
         holder.binding.itemTitle.text = diary.text
 
