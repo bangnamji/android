@@ -1,9 +1,13 @@
 package com.example.diaryinmyhand
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -13,14 +17,27 @@ import java.util.*
 
 class DiaryWriting : AppCompatActivity() {
 
+    private var Datadb:DataDB?=null
+    private val OPEN_GALLERY=1
+
     var formatDate = SimpleDateFormat("YYYY년 MM월 dd일", Locale.KOREA)
 
-    private lateinit var binding: ActivityDiaryWritingBinding
+    private lateinit var binding : ActivityDiaryWritingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDiaryWritingBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        Datadb = DataDB.getInstance(this)
+
+        val addRunnable = Runnable {
+            val newCat = Data()
+            newCat.dataTitle = binding.titleWrite.text.toString()
+            newCat.dataImage = binding.imageContent.imageAlpha
+            newCat.dataContent = binding.contentWrite.text.toString()
+            Datadb?.dataDao()?.insert(newCat)
+        }
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR).toString()
@@ -55,9 +72,53 @@ class DiaryWriting : AppCompatActivity() {
         }
 
         binding.Ok.setOnClickListener {
-            val intent1 = Intent(this,MainActivity2::class.java)
-            startActivity(intent1)
+            val addThread = Thread(addRunnable)
+            addThread.start()
+
+            val i = Intent(this, MainActivity2::class.java)
+            startActivity(i)
+            finish()
+
+            /*val intent1 = Intent(this,MainActivity2::class.java)
+            startActivity(intent1)*/
         }
 
+        binding.Picture.setOnClickListener {
+            openGallery()
+        }
     }
+
+    private fun openGallery() {
+        val intent: Intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.setType("image/*")
+        startActivityForResult(intent, OPEN_GALLERY)
+    }
+
+    @Override
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == OPEN_GALLERY) {
+                var currentImageUrl: Uri? = data?.data
+
+                try {
+                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, currentImageUrl)
+                    binding.imageContent.setImageBitmap(bitmap)
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
+        else {
+            Log.d("ActivityResult", "something wrong")
+        }
+    }
+
+    override fun onDestroy() {
+        DataDB.destroyInstance()
+        super.onDestroy()
+    }
+
 }

@@ -25,16 +25,18 @@
 
         </activity>
         <activity android:name=".datepicker.TestActivity">
+
+        </activity>
+        <activity android:name=".datepicker.DatePicker_1" />
+        <activity android:name=".datepicker.DatePickerMainActivity" />
+        <activity android:name=".todolist.Modify" />
+        <activity android:name=".todolist.CheckBoxActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".datepicker.DatePicker_1" />
-        <activity android:name=".datepicker.DatePickerMainActivity" />
-        <activity android:name=".todolist.Modify" />
-        <activity android:name=".todolist.CheckBoxActivity" />
         <activity android:name=".todolist.todo_Splash" />
         <activity android:name=".todolist.MainActivity" />
 

@@ -1,5 +1,6 @@
 package com.example.diaryinmyhand
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diaryinmyhand.databinding.ActivityMain2Binding
@@ -26,15 +29,14 @@ class MainActivity2 : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+/*        //선택된 날짜 반영하기
+        binding.calendarView.setOnDateChangeListener(object : CalendarView.OnDateChangeListener {
+            override fun onSelectedDayChange(view: CalendarView, year: Int, month: Int, dayOfMonth: Int) {
+                Toast.makeText(this@MainActivity2, "선택된 날짜는 $year.${month+1}.$dayOfMonth",
+                Toast.LENGTH_SHORT). show()
+            }
+        })*/
 
-/*        //addview로 해보기
-        var linearLayout: LinearLayout = findViewById(R.id.list)
-        for (i in 1 .. 10) {
-            val view: View = layoutInflater.inflate(R.layout.diaryitem,null)
-            val tvItem: TextView = view.findViewById(R.id.item_title)
-            tvItem.setText(""+ i +"번째 다이어리")
-            linearLayout.addView(view)
-        }*/
 
         //recycler뷰로 해보자
         binding.list.apply {
@@ -59,6 +61,7 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         binding.Plus.setOnClickListener {
+            addDiary()
             val intent2 = Intent(this, DiaryWriting::class.java)
             startActivity(intent2)
         }
@@ -71,8 +74,28 @@ class MainActivity2 : AppCompatActivity() {
         binding.list.adapter?.notifyDataSetChanged()
     }
 
+
     private fun moreDiary(diary: DiaryList) {
-        //data.remove(diary)
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("목록")
+            .setMessage("수행할 내용을 알려주시용!")
+            .setPositiveButton("수정", DialogInterface.OnClickListener { dialog, which ->
+                Toast.makeText(this, "일기를 수정합니다.", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, DiaryWriting::class.java)
+                startActivity(intent)
+            })
+            .setNegativeButton("삭제", DialogInterface.OnClickListener { dialog, which ->
+                Toast.makeText(this, "일기를 삭제합니다.", Toast.LENGTH_SHORT).show()
+                //일기 삭제하는 기능...
+                data.remove(diary)
+                binding.list.adapter?.notifyDataSetChanged()
+            })
+            .setNeutralButton("이모티콘", DialogInterface.OnClickListener { dialog, which ->
+                Toast.makeText(this, "이모티콘을 설정합니다.", Toast.LENGTH_SHORT).show()
+                //이모티콘 어쩌지.....
+            })
+            .create()
+            .show()
         //binding.list.adapter?.notifyDataSetChanged()
     }
 }
@@ -94,9 +117,11 @@ class DiaryAdapter(private val myDiary: ArrayList<DiaryList>, val onClickMoreIco
 
         holder.binding.itemTitle.text = diary.text
 
-        /*holder.binding.more.setOnClickListener {
+        holder.binding.more.setOnClickListener {
             onClickMoreIcon.invoke(diary)
-        }*/
+        }
+
+
 
         holder.binding.itemTitle.setOnClickListener {
             val intent = Intent(holder.itemView?.context, DiaryWriting::class.java)
